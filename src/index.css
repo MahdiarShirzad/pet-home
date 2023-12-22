@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f8f8f8;
+}
+@font-face {
+  font-family: yekanReg;
+  src: url("./assets/fonts/woff/YekanBakhFaNum-Regular.woff") format("truetype");
+}
+
+@font-face {
+  font-family: yekanBold;
+  src: url("./assets/fonts/woff/YekanBakhFaNum-Bold.woff") format("truetype");
+}
+
+@font-face {
+  font-family: yekanExtraBold;
+  src: url("./assets/fonts/woff/YekanBakhFaNum-ExtraBold.woff")
+    format("truetype");
+}
+
+@font-face {
+  font-family: yekanSemiBold;
+  src: url("./assets/fonts/woff/YekanBakhFaNum-SemiBold.woff")
+    format("truetype");
+}
+.active-link {
+  @apply text-[#FFAA00] border-b-2 border-[#FFAA00] pb-4;
+}
+
+#range-slider-yellow .range-slider__thumb {
+  background: #faa307;
+  transition: transform 0.3s;
+}
+#range-slider-yellow .range-slider__range {
+  background: #ffbf00;
+  transition: height 0.3s;
+}
+.react-multi-carousel-list {
+  padding: 0rem 0 2rem 0;
+}
+
+.custom-dot-list-style button {
+  border: none !important;
+  background: #ccc;
+  padding: 7px !important;
+}
+.react-multi-carousel-dot.react-multi-carousel-dot--active button {
+  background: #343a40 !important;
+  width: 30px !important;
+  border-radius: 50px !important;
+}
