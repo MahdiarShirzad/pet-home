@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Landing from "../screens/Landing/Landing";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Products from "../screens/Products/Products";
-
 import Blog from "../screens/Blog/Blog";
 import AboutUs from "../screens/AboutUs/AboutUs";
 import ContactUs from "../screens/ContactUs/ContactUs";
@@ -10,17 +9,6 @@ import Cart from "../screens/Cart/Cart";
 import Login from "../screens/Login/Login";
 import Header from "../components/common/Header/Header";
 import Footer from "../components/common/footer/Footer";
-
-import item1 from "../assets/img/product-1.jpg";
-import item2 from "../assets/img/product-2.jpg";
-import item3 from "../assets/img/product-3.jpg";
-import item4 from "../assets/img/product-4.jpg";
-import item5 from "../assets/img/product-5.jpg";
-
-import img1 from "../assets/img/beautiful-pet-1.jpg";
-import img2 from "../assets/img/beautiful-pet-2.jpg";
-import img3 from "../assets/img/beautiful-pet-3.jpg";
-import img4 from "../assets/img/beautiful-pet-4.jpg";
 import axios from "axios";
 import SignUp from "../screens/Login/SignUp";
 import ProductDetail from "../screens/ProductDetail/ProductDetail";
@@ -45,7 +33,7 @@ const App = () => {
         // Fetch products
         const productsResponse = await axios.get(
           "http://localhost:3000/products"
-        ); // Replace with your API endpoint for products
+        );
         setItems(productsResponse.data);
 
         // Fetch blogs

@@ -7,7 +7,7 @@ const BlogSection = ({ blogs }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Optional: adds smooth scrolling
+      behavior: "smooth",
     });
   };
   return (

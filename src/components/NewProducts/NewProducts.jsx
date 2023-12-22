@@ -45,7 +45,7 @@ const NewProducts = ({ items }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Optional: adds smooth scrolling
+      behavior: "smooth",
     });
   };
 
@@ -84,7 +84,6 @@ const NewProducts = ({ items }) => {
           </p>
         </div>
         <div className="mt-8  mb-8">
-          {/* <MultiCarousel items={items} /> */}
           <Carousel
             responsive={responsive}
             autoPlay={true}

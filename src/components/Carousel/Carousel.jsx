@@ -5,7 +5,7 @@ import slider2 from "../../assets/img/slider-2.jpg";
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [slider1, slider2, slider1, slider2, slider1, slider2];
-  const intervalDuration = 4000; // 4 seconds
+  const intervalDuration = 4000;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,7 +23,6 @@ const Carousel = () => {
   return (
     <div className=" relative max-w-[1156px] h-[470px] mx-auto ">
       <div className="overflow-hidden relative h-[470px] mx-4 ">
-        {/* Display the current slide */}
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -42,7 +41,6 @@ const Carousel = () => {
         ))}
       </div>
 
-      {/* Circles to indicate current slide */}
       <div className=" absolute left-0 right-0 bottom-[-30px] flex mb-1 justify-center">
         {slides.map((_, index) => (
           <div
