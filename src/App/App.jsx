@@ -12,6 +12,8 @@ import Footer from "../components/common/footer/Footer";
 import axios from "axios";
 import SignUp from "../screens/Login/SignUp";
 import ProductDetail from "../screens/ProductDetail/ProductDetail";
+import ProductDesc from "../screens/ProductDetail/ProductDesc";
+import ProductComments from "../screens/ProductDetail/ProductComments";
 
 const Layout = ({ children }) => {
   return (
@@ -37,7 +39,7 @@ const App = () => {
         setItems(productsResponse.data);
 
         // Fetch blogs
-        const blogsResponse = await axios.get("http://localhost:3000/blogs"); // Replace with your API endpoint for blogs
+        const blogsResponse = await axios.get("http://localhost:3000/blogs");
         setBlogs(blogsResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -53,7 +55,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Landing items={items} blogs={blogs} />} />
           <Route path="/products" element={<Products items={items} />} />
-          <Route path="product-detail" element={<ProductDetail />} />
+          <Route path="product-detail" element={<ProductDetail />}>
+            <Route index path="product-description" element={<ProductDesc />} />
+            <Route path="product-comments" element={<ProductComments />} />
+          </Route>
           <Route path="/blog" element={<Blog blogs={blogs} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
