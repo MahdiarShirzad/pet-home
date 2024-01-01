@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const ProductCard = ({ posts, index, currentPosts }) => {
+  const { id } = posts;
   const [quantity, setQuantity] = useState(0);
 
   const increaseQuantity = () => {
@@ -33,7 +34,7 @@ const ProductCard = ({ posts, index, currentPosts }) => {
       onMouseLeave={handleHover}
       style={{}}
     >
-      <NavLink to="/product-detail">
+      <Link to={`${id}`}>
         <img
           src={posts.img}
           alt={posts.title}
@@ -43,7 +44,7 @@ const ProductCard = ({ posts, index, currentPosts }) => {
             transform: isHovered ? "translateY(-4px)" : "translateY(0)",
           }}
         />
-      </NavLink>
+      </Link>
       <p className="font-yekanSemiBold text-[18px] mt-3 text-right px-6">
         {posts.title}
       </p>

@@ -55,16 +55,17 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Landing items={items} blogs={blogs} />} />
           <Route path="/products" element={<Products items={items} />} />
-          <Route path="product-detail" element={<ProductDetail />}>
-            <Route index path="product-description" element={<ProductDesc />} />
-            <Route path="product-comments" element={<ProductComments />} />
-          </Route>
+          <Route
+            path="/products/:id"
+            element={<ProductDetail items={items} />}
+          ></Route>
           <Route path="/blog" element={<Blog blogs={blogs} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="*" element={<p className="text-4xl">not found</p>} />
         </Routes>
       </Layout>
     </BrowserRouter>
