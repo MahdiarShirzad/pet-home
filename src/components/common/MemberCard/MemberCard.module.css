@@ -4,7 +4,6 @@
   box-shadow: 0 2px 8px rgba(99, 99, 99, 0.2);
   padding: 43px;
   position: relative;
-  cursor: pointer;
 }
 
 .card_item::before,

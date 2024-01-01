@@ -14,6 +14,7 @@ import SignUp from "../screens/Login/SignUp";
 import ProductDetail from "../screens/ProductDetail/ProductDetail";
 import ProductDesc from "../screens/ProductDetail/ProductDesc";
 import ProductComments from "../screens/ProductDetail/ProductComments";
+import BlogDetail from "../screens/BlogDetail/BlogDetail";
 
 const Layout = ({ children }) => {
   return (
@@ -60,6 +61,7 @@ const App = () => {
             element={<ProductDetail items={items} />}
           ></Route>
           <Route path="/blog" element={<Blog blogs={blogs} />} />
+          <Route path="/blog/:id" element={<BlogDetail blogs={blogs} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/cart" element={<Cart />} />

@@ -1,8 +1,8 @@
 import React from "react";
 import MemberCard from "../common/MemberCard/MemberCard";
 
-import avatar1 from "../../assets/img/profile.jpg";
-import avatar2 from "../../assets/img/profile-1.jpg";
+import avatar1 from "../../assets/img/mahdiar.jpg";
+import avatar2 from "../../assets/img/shayan.jpg";
 import avatar3 from "../../assets/img/profile-2.jpg";
 import avatar4 from "../../assets/img/profile-3.jpg";
 
@@ -10,27 +10,14 @@ const TeamMembers = () => {
   const members = [
     {
       avatar: avatar1,
-      name: "معین جدری",
-      position: "مدیر عامل",
+      name: "مهدیار شیرزاد",
+      position: "برنامه نویس فرانت اند",
       dec: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. ",
     },
     {
       avatar: avatar2,
-      name: "سهیل زارعی",
-      position: "برنامه نویس",
-      dec: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. ",
-    },
-    {
-      avatar: avatar3,
-      name: "آتوسا صادقی",
-      position: "طراح گرافیک",
-      dec: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. ",
-    },
-
-    {
-      avatar: avatar4,
-      name: "علی عباسی",
-      position: "سئو",
+      name: "شایان هاشمی",
+      position: "برنامه نویس بک اند",
       dec: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. ",
     },
   ];
@@ -71,7 +58,7 @@ const TeamMembers = () => {
       <p class="font-yekanReg mt-4">
         دلایلی که میتوانید با خیال راحت به ما اعتماد کنید.
       </p>
-      <div className="flex items-center justify-between gap-8 mt-9">
+      <div className="flex items-center justify-center gap-8 mt-9">
         {members.map((member, i) => (
           <MemberCard member={member} key={i} />
         ))}
