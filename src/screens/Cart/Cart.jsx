@@ -13,8 +13,6 @@ const Cart = () => {
           <p>حذف</p>
         </div>
         <CartItem />
-        <CartItem />
-        <CartItem />
       </div>
       <div className="w-1/4 bg-white text-sm font-yekanReg px-5 py-3 rounded-3xl">
         <div className="flex items-center justify-between bg-[#FEBF0F1A] px-3 py-3 rounded-2xl">

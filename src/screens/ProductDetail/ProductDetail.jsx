@@ -5,10 +5,13 @@ import { NavLink, Outlet, useParams } from "react-router-dom";
 import ProductDesc from "./ProductDesc";
 import ProductComments from "./ProductComments";
 import SimilarProducts from "./SimilarProducts";
+import { useProducts } from "../../context/ProductContext";
 
 const activeClass = ({ isActive }) => (isActive ? "text-[#ffaa00]" : "");
 
-const ProductDetail = ({ items }) => {
+const ProductDetail = () => {
+  const { items } = useProducts();
+
   const { id } = useParams();
   const selectedProduct = items.find((item) => item.id === id);
   const [showDescription, setShowDescription] = useState(true);

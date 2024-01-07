@@ -15,6 +15,7 @@ import ProductDetail from "../screens/ProductDetail/ProductDetail";
 import ProductDesc from "../screens/ProductDetail/ProductDesc";
 import ProductComments from "../screens/ProductDetail/ProductComments";
 import BlogDetail from "../screens/BlogDetail/BlogDetail";
+import { ProductsProvider } from "../context/ProductContext";
 
 const Layout = ({ children }) => {
   return (
@@ -27,50 +28,26 @@ const Layout = ({ children }) => {
 };
 
 const App = () => {
-  const [items, setItems] = useState([]);
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch products
-        const productsResponse = await axios.get(
-          "http://localhost:3000/products"
-        );
-        setItems(productsResponse.data);
-
-        // Fetch blogs
-        const blogsResponse = await axios.get("http://localhost:3000/blogs");
-        setBlogs(blogsResponse.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Landing items={items} blogs={blogs} />} />
-          <Route path="/products" element={<Products items={items} />} />
-          <Route
-            path="/products/:id"
-            element={<ProductDetail items={items} />}
-          ></Route>
-          <Route path="/blog" element={<Blog blogs={blogs} />} />
-          <Route path="/blog/:id" element={<BlogDetail blogs={blogs} />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="*" element={<p className="text-4xl">not found</p>} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <ProductsProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetail />}></Route>
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="*" element={<p className="text-4xl">not found</p>} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </ProductsProvider>
   );
 };
 

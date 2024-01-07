@@ -5,8 +5,11 @@ import LastBlogCard from "../Blog/LastBlogCard";
 import BlogDetailPoster from "./BlogDetailPoster";
 import BlogText from "./BlogText";
 import BlogComments from "./BlogComments";
+import { useProducts } from "../../context/ProductContext";
 
-const BlogDetail = ({ blogs }) => {
+const BlogDetail = ({}) => {
+  const { blogs } = useProducts();
+
   const { id } = useParams();
   const [blog, setBlog] = useState(blogs);
   const selectedBlog = blogs.find((blog) => blog.id === id);

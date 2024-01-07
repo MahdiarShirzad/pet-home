@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import img from "../../assets/img/product-1.jpg";
 
 const ProductDetailCard = ({ selectedProduct }) => {
   const [quantity, setQuantity] = useState(0);

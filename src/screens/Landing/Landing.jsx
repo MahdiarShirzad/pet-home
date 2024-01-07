@@ -7,8 +7,11 @@ import AboutUsSection from "../../components/AboutUsSection/AboutUsSection";
 import CustomersComments from "../../components/CustomersComments/CustomersComments";
 import BlogSection from "../../components/BlogSection/BlogSection";
 import Footer from "../../components/common/footer/Footer";
+import { useProducts } from "../../context/ProductContext";
 
-const Landing = ({ items, blogs }) => {
+const Landing = () => {
+  const { items, blogs } = useProducts();
+
   return (
     <>
       <Carousel />

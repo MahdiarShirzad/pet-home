@@ -4,8 +4,11 @@ import BlogCategory from "./BlogCategory";
 import LastBlogCard from "./LastBlogCard";
 import BlogNavbar from "./BlogNavbar";
 import Loading from "../../components/common/Loading/Loading";
+import { useProducts } from "../../context/ProductContext";
 
-const Blog = ({ blogs }) => {
+const Blog = () => {
+  const { blogs } = useProducts();
+
   const [blog, setBlog] = useState(blogs);
   const blogCategories = [...new Set(blogs.map((blog) => blog.category))];
 

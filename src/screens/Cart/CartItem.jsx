@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import productImg from "../../assets/img/product-1.jpg";
 
 const CartItem = () => {
+  const [quantity, setQuantity] = useState(0);
+
+  const increaseQuantity = () => {
+    if (quantity < 5) {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+    }
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
+
   return (
     <div className="flex items-center justify-between font-yekanReg  px-6 rounded-2xl py-4 mb-5 bg-[#FEBF0F1A]">
       <div className="flex items-center justify-center flex-col gap-3">
@@ -12,7 +26,7 @@ const CartItem = () => {
         <span>800.00</span> <span>تومان</span>
       </p>
       <div className="flex items-center justify-center gap-8 border-2 border-gray-300 px-3 py-2 rounded-2xl">
-        <button className="">
+        <button className="" onClick={increaseQuantity}>
           <svg
             width="15"
             height="16"
@@ -36,8 +50,8 @@ const CartItem = () => {
             ></path>
           </svg>
         </button>
-        <div className="">4</div>
-        <button>
+        <div className="">{quantity}</div>
+        <button onClick={decreaseQuantity}>
           <svg
             width="15"
             height="16"
@@ -55,7 +69,7 @@ const CartItem = () => {
           </svg>
         </button>
       </div>
-      <div>3.200.000</div>
+      <div>{quantity * 100000}</div>
       <button className="border-2 p-3 rounded-2xl border-gray-300">
         <svg
           width="16"

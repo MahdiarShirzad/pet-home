@@ -7,8 +7,11 @@ import ProductBanner from "./ProductBanner";
 import ProductCard from "../../components/common/ProductCard/ProductCard";
 
 import Pagination from "../../components/common/Pagination/Pagination";
+import { useProducts } from "../../context/ProductContext";
 
-const Products = ({ items }) => {
+const Products = () => {
+  const { items } = useProducts();
+
   const [posts, setPosts] = useState(items);
   const [defaultPosts, setDefaultPosts] = useState(items);
   const [loading, setLoading] = useState(false);
