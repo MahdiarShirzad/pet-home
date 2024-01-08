@@ -42,7 +42,7 @@ const PriceSlider = ({ values, setValues, highestPrice }) => {
               }}
               onChange={handleMin}
               type="number"
-              className="w-16 text-center rounded-2xl bg-[#FEBF0F26]"
+              className="w-16 text-center text-xs  px-2 py-1 rounded-2xl bg-[#FEBF0F26]"
             />
           </div>
         </div>
@@ -61,7 +61,7 @@ const PriceSlider = ({ values, setValues, highestPrice }) => {
               value={values?.[1]}
               onChange={handleMax}
               type="number"
-              className="w-16 text-center  rounded-2xl bg-[#FEBF0F26]"
+              className="w-16 text-center text-xs px-2 py-1 rounded-2xl bg-[#FEBF0F26]"
             />
           </div>
         </div>

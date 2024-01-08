@@ -9,11 +9,8 @@ import Cart from "../screens/Cart/Cart";
 import Login from "../screens/Login/Login";
 import Header from "../components/common/Header/Header";
 import Footer from "../components/common/footer/Footer";
-import axios from "axios";
 import SignUp from "../screens/Login/SignUp";
 import ProductDetail from "../screens/ProductDetail/ProductDetail";
-import ProductDesc from "../screens/ProductDetail/ProductDesc";
-import ProductComments from "../screens/ProductDetail/ProductComments";
 import BlogDetail from "../screens/BlogDetail/BlogDetail";
 import { ProductsProvider } from "../context/ProductContext";
 

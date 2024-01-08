@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import productImg from "../../assets/img/product-1.jpg";
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
   const [quantity, setQuantity] = useState(0);
 
   const increaseQuantity = () => {
@@ -16,14 +16,18 @@ const CartItem = () => {
     }
   };
 
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   return (
     <div className="flex items-center justify-between font-yekanReg  px-6 rounded-2xl py-4 mb-5 bg-[#FEBF0F1A]">
       <div className="flex items-center justify-center flex-col gap-3">
         <img className="w-[140px] rounded-3xl" src={productImg} alt="" />
-        <h3 className="mt-2">غذای خشک تیدا</h3>
+        <h3 className="mt-2">{item.title}</h3>
       </div>
       <p>
-        <span>800.00</span> <span>تومان</span>
+        <span> {formatPrice(item.price)}</span> <span>تومان</span>
       </p>
       <div className="flex items-center justify-center gap-8 border-2 border-gray-300 px-3 py-2 rounded-2xl">
         <button className="" onClick={increaseQuantity}>
@@ -69,7 +73,7 @@ const CartItem = () => {
           </svg>
         </button>
       </div>
-      <div>{quantity * 100000}</div>
+      <div>{quantity * formatPrice(item.price)}</div>
       <button className="border-2 p-3 rounded-2xl border-gray-300">
         <svg
           width="16"

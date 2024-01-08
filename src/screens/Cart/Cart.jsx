@@ -1,7 +1,10 @@
 import React from "react";
 import CartItem from "./CartItem";
+import { useProducts } from "../../context/ProductContext";
 
 const Cart = () => {
+  const { cartItems } = useProducts();
+
   return (
     <div className="container mx-auto max-w-[1200px] my-10 flex items-start justify-between">
       <div className=" w-3/5 bg-white px-10 py-8 rounded-3xl">
@@ -12,7 +15,9 @@ const Cart = () => {
           <p>قیمت کل:</p>
           <p>حذف</p>
         </div>
-        <CartItem />
+        {cartItems.map((item) => (
+          <CartItem key={item.id} item={item} />
+        ))}
       </div>
       <div className="w-1/4 bg-white text-sm font-yekanReg px-5 py-3 rounded-3xl">
         <div className="flex items-center justify-between bg-[#FEBF0F1A] px-3 py-3 rounded-2xl">

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useProducts } from "../../../context/ProductContext";
 
 const ProductCard = ({ posts, index, currentPosts }) => {
-  const { id } = posts;
+  const { addToCart } = useProducts();
+  const { id, title, img, price, score } = posts;
   const [quantity, setQuantity] = useState(0);
 
   const increaseQuantity = () => {
@@ -23,6 +25,12 @@ const ProductCard = ({ posts, index, currentPosts }) => {
     setIsHovered(!isHovered);
   };
 
+  const addToCartHandler = () => {
+    if (quantity > 0) {
+      addToCart(posts, quantity);
+    }
+  };
+
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
@@ -36,8 +44,8 @@ const ProductCard = ({ posts, index, currentPosts }) => {
     >
       <Link to={`${id}`}>
         <img
-          src={posts.img}
-          alt={posts.title}
+          src={img}
+          alt={title}
           className="w-6/7 mx-auto mt-3 h-auto rounded-full mb-2 transform-gpu duration-300"
           style={{
             transition: "transform 0.3s",
@@ -46,18 +54,18 @@ const ProductCard = ({ posts, index, currentPosts }) => {
         />
       </Link>
       <p className="font-yekanSemiBold text-[18px] mt-3 text-right px-6">
-        {posts.title}
+        {title}
       </p>
       <div>
         <div className="flex items-center justify-between gap-1 my-6 px-6 text-[#FFAA00]">
           <div className="flex gap-1">
             <span className="font-yekanBold text-[18px]">
-              {formatPrice(posts.price)}
+              {formatPrice(price)}
             </span>
             <span className="font-yekanReg">تومان</span>
           </div>
           <div className="flex items-center gap-1 font-yekanSemiBold">
-            <span className="text-black text-lg">{posts.score}</span>
+            <span className="text-black text-lg">{score}</span>
             <span>
               <svg
                 className="w-[18px]"
@@ -73,7 +81,10 @@ const ProductCard = ({ posts, index, currentPosts }) => {
         </div>
       </div>
       <div className="mb-5 w-full px-4 flex items-center justify-between">
-        <button className="flex items-center p-3 rounded-2xl  bg-[#FEBF0F26] ">
+        <button
+          onClick={addToCartHandler}
+          className="flex items-center p-3 rounded-2xl  bg-[#FEBF0F26] "
+        >
           <svg
             width="21"
             height="22"
