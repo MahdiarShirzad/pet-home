@@ -1,6 +1,34 @@
 import React from "react";
 import CartItem from "./CartItem";
 import { useProducts } from "../../context/ProductContext";
+class MyCart {
+  constructor() {
+    this.items = [];
+  }
+
+  push(element) {
+    this.items.push(element);
+  }
+
+  pop() {
+    if (this.items.length === 0) {
+      return "Underflow";
+    }
+    return this.items.pop();
+  }
+
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  size() {
+    return this.items.length;
+  }
+}
 
 const Cart = () => {
   const { cartItems } = useProducts();
@@ -45,3 +73,4 @@ const Cart = () => {
 };
 
 export default Cart;
+export { MyCart };

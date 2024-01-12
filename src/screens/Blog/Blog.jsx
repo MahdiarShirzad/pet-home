@@ -41,11 +41,11 @@ const Blog = () => {
   const [loading, setLoading] = useState(false);
 
   const loadMoreBlogs = () => {
-    setLoading(true); // Set loading to true before fetching more blogs (simulated API call)
+    setLoading(true);
     setTimeout(() => {
-      setVisibleBlogs((prevVisibleBlogs) => prevVisibleBlogs + 15); // Load additional blogs (e.g., 15 more)
-      setLoading(false); // Set loading to false after fetching more blogs
-    }, 2000); // Simulated delay for loading
+      setVisibleBlogs((prevVisibleBlogs) => prevVisibleBlogs + 15);
+      setLoading(false);
+    }, 2000);
   };
 
   const handleScroll = () => {

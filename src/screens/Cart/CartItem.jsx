@@ -23,7 +23,7 @@ const CartItem = ({ item }) => {
   return (
     <div className="flex items-center justify-between font-yekanReg  px-6 rounded-2xl py-4 mb-5 bg-[#FEBF0F1A]">
       <div className="flex items-center justify-center flex-col gap-3">
-        <img className="w-[140px] rounded-3xl" src={productImg} alt="" />
+        <img className="w-[140px] rounded-3xl" src={item.img} alt="" />
         <h3 className="mt-2">{item.title}</h3>
       </div>
       <p>
