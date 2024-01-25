@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ProductsContext = createContext();
 
 function ProductsProvider({ children }) {
+  const BASE_URL = "http://91.107.139.203:8000";
+
   const [items, setItems] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [cartItems, setCartItems] = useState([]);
@@ -16,13 +18,11 @@ function ProductsProvider({ children }) {
     const fetchData = async () => {
       try {
         // Fetch products
-        const productsResponse = await axios.get(
-          "http://localhost:3000/products"
-        );
+        const productsResponse = await axios.get(`${BASE_URL}/products/`);
         setItems(productsResponse.data);
 
         // Fetch blogs
-        const blogsResponse = await axios.get("http://localhost:3000/blogs");
+        const blogsResponse = await axios.get(`${BASE_URL}/blogs/`);
         setBlogs(blogsResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);

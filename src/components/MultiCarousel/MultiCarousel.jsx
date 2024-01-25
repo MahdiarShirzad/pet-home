@@ -31,13 +31,12 @@ const MultiCarousel = ({ items }) => {
           scrollBehavior: "smooth",
           overflowX: "hidden",
           whiteSpace: "nowrap",
-          width: `${270 * items.length}px`, // Fixed width for the card container
+          width: `${270 * items.length}px`,
         }}
       >
         {items.map((posts, index) => (
           <div key={index} style={{ width: "270px" }}>
             {" "}
-            {/* Adjust width here */}
             <ProductCard posts={posts} index={index} />
           </div>
         ))}

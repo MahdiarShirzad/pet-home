@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import productImg from "../../assets/img/product-1.jpg";
 
 const CartItem = ({ item }) => {
-  const [quantity, setQuantity] = useState(0);
-
   const increaseQuantity = () => {
-    if (quantity < 5) {
+    if (item.quantity < 5) {
       setQuantity((prevQuantity) => prevQuantity + 1);
     }
   };
 
   const decreaseQuantity = () => {
-    if (quantity > 0) {
+    if (item.quantity > 0) {
       setQuantity((prevQuantity) => prevQuantity - 1);
     }
   };
@@ -54,7 +51,7 @@ const CartItem = ({ item }) => {
             ></path>
           </svg>
         </button>
-        <div className="">{quantity}</div>
+        <div className="">{item.quantity}</div>
         <button onClick={decreaseQuantity}>
           <svg
             width="15"
@@ -73,7 +70,7 @@ const CartItem = ({ item }) => {
           </svg>
         </button>
       </div>
-      <div>{quantity * formatPrice(item.price)}</div>
+      <div className="">{item.quantity * formatPrice(item.price) * 1000}</div>
       <button className="border-2 p-3 rounded-2xl border-gray-300">
         <svg
           width="16"

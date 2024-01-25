@@ -125,18 +125,20 @@ const Products = () => {
       setPosts(sortedPosts);
     }
     if (sortBy === "قیمت از ارزان ترین") {
+      let minHeap = new MinHeap();
       const sortedPosts = [...posts].sort((a, b) => {
         const priceA = parseFloat(a.price);
         const priceB = parseFloat(b.price);
-        return priceA - priceB;
+        return priceA - priceB, minHeap;
       });
       setPosts(sortedPosts);
     }
     if (sortBy === "قیمت از گران ترین") {
+      let maxHeap = new MaxHeap();
       const sortedPosts = [...posts].sort((a, b) => {
         const priceA = parseFloat(a.price);
         const priceB = parseFloat(b.price);
-        return priceB - priceA;
+        return priceB - priceA, maxHeap;
       });
       setPosts(sortedPosts);
     }
@@ -149,6 +151,80 @@ const Products = () => {
     setSelectedOption("");
     setIsOpen(false);
   };
+
+  class MaxHeap {
+    constructor() {
+      this.heap = [];
+    }
+
+    insert(value) {
+      this.heap.push(value);
+      this.heapifyUp();
+    }
+
+    heapifyUp() {
+      let currentIndex = this.heap.length - 1;
+      while (currentIndex > 0) {
+        const parentIndex = Math.floor((currentIndex - 1) / 2);
+        if (this.heap[currentIndex] > this.heap[parentIndex]) {
+          this.swap(currentIndex, parentIndex);
+          currentIndex = parentIndex;
+        } else {
+          break;
+        }
+      }
+    }
+
+    swap(i, j) {
+      const temp = this.heap[i];
+      this.heap[i] = this.heap[j];
+      this.heap[j] = temp;
+    }
+
+    getTop() {
+      if (this.heap.length === 0) {
+        return null;
+      }
+      return this.heap[0];
+    }
+  }
+
+  class MinHeap {
+    constructor() {
+      this.heap = [];
+    }
+
+    insert(value) {
+      this.heap.push(value);
+      this.heapifyUp();
+    }
+
+    heapifyUp() {
+      let currentIndex = this.heap.length - 1;
+      while (currentIndex > 0) {
+        const parentIndex = Math.floor((currentIndex - 1) / 2);
+        if (this.heap[currentIndex] < this.heap[parentIndex]) {
+          this.swap(currentIndex, parentIndex);
+          currentIndex = parentIndex;
+        } else {
+          break;
+        }
+      }
+    }
+
+    swap(i, j) {
+      const temp = this.heap[i];
+      this.heap[i] = this.heap[j];
+      this.heap[j] = temp;
+    }
+
+    getTop() {
+      if (this.heap.length === 0) {
+        return null;
+      }
+      return this.heap[0];
+    }
+  }
 
   useEffect(() => {
     setDefaultPosts(items);
@@ -175,6 +251,7 @@ const Products = () => {
       />
       <div className="w-full flex gap-10">
         <div className="w-1/4 mt-14">
+          {/* <div className="d-none ">{MaxHeap}</div> */}
           <ProductPriceRange
             highestPrice={highestPrice}
             minPrice={minPrice}

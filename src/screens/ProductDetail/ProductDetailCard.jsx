@@ -18,6 +18,7 @@ const ProductDetailCard = ({ selectedProduct }) => {
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
+  console.log(selectedProduct);
 
   return (
     <div className="flex justify-between px-28 bg-white py-10  rounded-3xl font-yekanReg">

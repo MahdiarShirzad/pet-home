@@ -3,9 +3,9 @@ import React from "react";
 const BlogDetailPoster = ({ blog }) => {
   return (
     <div className=" h-[450px] ">
-      <img className="h-full w-full rounded-3xl " src={blog.img} alt="" />
+      {/* <img className="h-full w-full rounded-3xl " src={blog.img} alt="" /> */}
       <div className="flex text-white font-yekanExtraBold text-2xl justify-between px-12 mt-[-60px]">
-        <p className="">{blog.title}</p>
+        {/* <p className="">{blog.title}</p> */}
         <div className="flex justify-center items-center gap-1">
           <p>300</p>
           <svg
